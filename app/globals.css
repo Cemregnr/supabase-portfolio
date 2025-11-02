@@ -2,7 +2,7 @@
 @import "tailwindcss/preflight" layer(base);
 @import "tailwindcss/utilities" layer(utilities);
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.light *));
 
 @theme inline {
   --color-background: var(--background);
