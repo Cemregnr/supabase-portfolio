@@ -33,17 +33,16 @@ export async function updateSession(request: NextRequest) {
   const { data } = await supabase.auth.getClaims();
   const user = data?.claims;
 
-  // 🧠 locale bilgisi next-intl tarafından eklenir
-  const locale = request.nextUrl.locale || "tr";
-
+  // Protected route kontrolü - locale zaten pathname'de var
   if (
-    request.nextUrl.pathname !== "/" &&
     !user &&
-    !request.nextUrl.pathname.startsWith(`/${locale}/auth`) &&
-    !request.nextUrl.pathname.startsWith(`/${locale}/login`)
+    request.nextUrl.pathname.includes('/protected')
   ) {
     const url = request.nextUrl.clone();
-    url.pathname = `/${locale}/auth/login`; // ✅ locale-aware redirect
+    // Mevcut locale'i koru
+    const pathParts = request.nextUrl.pathname.split('/');
+    const locale = pathParts[1]; // /tr/protected veya /en/protected
+    url.pathname = `/${locale}/auth/login`;
     return NextResponse.redirect(url);
   }
 
