@@ -21,7 +21,7 @@ export const Navbar = () => {
           {t("Navbar.blog")}
         </Link>
         <Link
-          href="/contact"
+          href="/iletisim"
           className="border-b-2 border-transparent hover:border-primary transition-colors duration-200"
         >
           {t("Navbar.contact")}

@@ -1,5 +1,5 @@
 import { ThemeProvider } from "next-themes";
-import "../globals.css";
+import "../../globals.css";
 import { LangProvider } from "@/providers/lang-provider";
 import TransitionProvider from "@/components/transitionProvider";
 import { hasLocale } from "next-intl";
@@ -20,15 +20,6 @@ export default async function RootLayout({
   }
 
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <LangProvider locale={locale}>
-            {children}
-      </LangProvider>
-    </ThemeProvider>
+    <TransitionProvider>{children}</TransitionProvider>
   );
 }
