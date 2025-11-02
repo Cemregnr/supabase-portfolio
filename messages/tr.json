@@ -1,0 +1,22 @@
+{
+  "HomePage": {},
+  "Navbar": {
+    "blog": "Blog",
+    "authors": "Yazarlar",
+    "edu-philosphy": "Eğitim Felsefesi",
+    "learning-theories": "Öğrenme Teorileri",
+    "contact": "İletişim"
+  },
+  "LanguageSwitcher": {
+    "selectLanguage": "Dil Seçin",
+    "selectSiteLanguage": "Site Dilini Seçin",
+    "close": "Kapat"
+  },
+  "Footer": {
+    "Categories": "Kategoriler",
+    "Announcements": "Duyurular",
+    "Class Management": "Sınıf Yönetimi",
+    "Curriculum Development": "Müfredat Geliştirme",
+    "Educational Technology": "Eğitim Teknolojisi"
+  }
+}

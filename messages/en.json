@@ -1,0 +1,19 @@
+{
+  "HomePage": {},
+  "Navbar": {
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "LanguageSwitcher": {
+    "selectLanguage": "Select Language",
+    "selectSiteLanguage": "Select Site Language",
+    "close": "Close"
+  },
+  "Footer": {
+    "Categories": "Categories",
+    "Announcements": "Announcements",
+    "Class Management": "Class Management",
+    "Curriculum Development": "Curriculum Development",
+    "Educational Technology": "Educational Technology"
+  }
+}
