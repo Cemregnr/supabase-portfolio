@@ -12,11 +12,62 @@
     "selectSiteLanguage": "Site Dilini Seçin",
     "close": "Kapat"
   },
-  "Footer": {
-    "Categories": "Kategoriler",
-    "Announcements": "Duyurular",
-    "Class Management": "Sınıf Yönetimi",
-    "Curriculum Development": "Müfredat Geliştirme",
-    "Educational Technology": "Eğitim Teknolojisi"
+  
+  "Contact": {
+    "Contact": "İletişim",
+    "Message": "Mesaj",
+    "E-mail address": "Elektronik Posta Adresi",
+    "Regards": "Saygılarımla",
+    "Send": "Gönder",
+    "Success": "Mesajınız başarı ile gönderilmiştir",
+    "Fault": "Mesajınız gönderilemedi!"
+  }
+
+  ,"contact": {
+    "message": "Mesaj",
+    "email": "Elektronik Posta Adresi",
+    "regards": "Saygılarımla",
+    "send": "Gönder",
+    "success": "Mesajınız başarı ile gönderilmiştir",
+    "fault": "Mesajınız gönderilemedi!"
+  }
+
+  ,"cemre": {
+    "biography": "BİYOGRAFİ",
+    "bio": "Beykent Üniversitesi İngiliz Dili ve Edebiyatı bölümünden lisans derecesine sahip, çeviri ve mütercim tercümanlık yan dalı olan deneyimli ve motive bir İngilizce Öğretmeniyim. Marmara Üniversitesi Pedagojik Formasyonunu tamamladım; etkili öğretim yöntemleri ve sınıf yönetimi becerilerine sahibim. Öğrenci merkezli, ilgi çekici öğrenme ortamları oluşturma konusunda kanıtlanmış başarı; güçlü iletişim, organizasyon ve kişilerarası becerilerimle öğrencilerin akademik ve kişisel gelişimlerini desteklemeye adanmış durumdayım.",
+    "skills": {
+      "title": "BECERİLER",
+      "classroomManagement": "Sınıf Yönetimi",
+      "curriculumDevelopment": "Müfredat Geliştirme",
+      "technologyIntegration": "Teknoloji Entegrasyonu",
+      "communication": "İletişim Becerileri",
+      "lessonPlanning": "Ders Planlaması",
+      "criticalThinking": "Eleştirel Düşünme",
+      "culturalAwareness": "Kültürel Farkındalık",
+      "digitalLiteracy": "Dijital Okuryazarlık"
+    },
+    "experience": {
+      "title": "DENEYİM",
+      "items": {
+        "0": {
+          "title": "İngilizce Öğretmeni & Sınıf Danışmanı",
+          "desc": "Çeşitli öğrenci ihtiyaçlarına ve öğrenme stillerine yönelik uyarlanmış ders planları geliştirmek ve uygulamak. Sınıf danışmanı olarak öğrencilerin akademik ilerlemesini ve kişisel gelişimini desteklemek. Performanslar, pano sergileri ve eğitim gezileri gibi etkinlikler düzenleyerek öğrenci katılımını artırmak.",
+          "date": "2025 - Devam",
+          "company": "Era College"
+        },
+        "1": {
+          "title": "İngilizce Öğretmeni",
+          "desc": "Edebiyat ve dil tutkusunu teşvik etmek için yaratıcı öğretim yöntemleri tasarladı ve uyguladı. İşbirliğini ve olumlu bir sınıf ortamını desteklemek için ders dışı etkinlikler koordine etti.",
+          "date": "2022 - 2023",
+          "company": "Sadabad Anadolu Lisesi"
+        },
+        "2": {
+          "title": "İngilizce Öğretmeni (Stajyer)",
+          "desc": "Karmaşık kavramları açıklamak ve çeşitli öğrenme stillerine uyum sağlamak için etkileyici ders planları hazırladı. Öğrencilerin anlama ve dil becerilerini geliştiren dersler sundu.",
+          "date": "2021 - 2022",
+          "company": "Fatih Atatürk Çağdaş Yaşam Çok Programlı Anadolu Lisesi"
+        }
+      }
+    }
   }
 }

@@ -22,7 +22,7 @@ export default async function RootLayout({
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="system"
+      defaultTheme="class"
       enableSystem
       disableTransitionOnChange
     >

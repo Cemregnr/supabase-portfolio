@@ -9,11 +9,62 @@
     "selectSiteLanguage": "Select Site Language",
     "close": "Close"
   },
-  "Footer": {
-    "Categories": "Categories",
-    "Announcements": "Announcements",
-    "Class Management": "Class Management",
-    "Curriculum Development": "Curriculum Development",
-    "Educational Technology": "Educational Technology"
+  
+   "Contact": {
+    "Contact": "Contact",
+    "Message": "Message",
+    "E-mail address": "E-mail address",
+    "Regards": "Regards",
+    "Send": "Send",
+    "Success": "Your message has been sent successfully!",
+    "Fault": "Something went wrong!"
+  }
+
+  ,"contact": {
+    "message": "Message",
+    "email": "E-mail address",
+    "regards": "Regards",
+    "send": "Send",
+    "success": "Your message has been sent successfully!",
+    "fault": "Something went wrong!"
+  }
+
+  ,"cemre": {
+    "biography": "BIOGRAPHY",
+    "bio": "Highly motivated and experienced English Teacher with a Bachelor’s degree in English Language and Literature from Beykent University, complemented by a minor in Translation and Interpreting. Completed Pedagogical Teacher Training at Marmara University, equipped with effective teaching methodologies and classroom management skills. Proven ability to create engaging, student-centered learning environments. Strong communication, organizational, and interpersonal skills, dedicated to supporting students’ academic and personal growth.",
+    "skills": {
+      "title": "SKILLS",
+      "classroomManagement": "Classroom Management",
+      "curriculumDevelopment": "Curriculum Development",
+      "technologyIntegration": "Technology Integration",
+      "communication": "Communication skills",
+      "lessonPlanning": "Lesson planning",
+      "criticalThinking": "Critical thinking",
+      "culturalAwareness": "Cultural awareness",
+      "digitalLiteracy": "Digital Literacy"
+    },
+    "experience": {
+      "title": "EXPERIENCE",
+      "items": {
+        "0": {
+          "title": "English Teacher & Class Advisor",
+          "desc": "Develop and deliver tailored lesson plans addressing diverse student needs and learning styles. Support students’ academic progress and personal development as a class advisor. Organize extracurricular activities, including performances, bulletin board displays, and educational trips to enhance student engagement.",
+          "date": "2025 - Present",
+          "company": "Era College"
+        },
+        "1": {
+          "title": "English Teacher",
+          "desc": "Designed and implemented creative teaching methods to foster a passion for literature and language. Coordinated extracurricular activities to promote collaboration and a positive classroom community.",
+          "date": "2022 - 2023",
+          "company": "Sadabad Anatolian High School"
+        },
+        "2": {
+          "title": "English Teacher (Intern)",
+          "desc": "Created engaging lesson plans to clarify complex concepts and accommodate various learning styles. Delivered lessons that enhanced students’ comprehension and language skills.",
+          "date": "2021 - 2022",
+          "company": "Fatih Atatürk Contemporary Life Multi-Program Anatolian High School"
+        }
+      }
+    }
   }
 }

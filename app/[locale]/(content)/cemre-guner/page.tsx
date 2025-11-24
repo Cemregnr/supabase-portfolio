@@ -3,11 +3,11 @@ import Brain from "@/components/brain";
 import { motion, useInView, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
-export default function CemreGüner  () {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const { scrollYProgress } = useScroll({ container: containerRef });
+export default function CemreGuner() {
+  // use viewport scroll so the Brain animates with page scroll
+  const { scrollYProgress } = useScroll();
 
   const skillRef = useRef<HTMLDivElement | null>(null);
   // const isSkillRefInView = useInView(skillRef, {once:true});
@@ -15,6 +15,7 @@ export default function CemreGüner  () {
 
   const experienceRef = useRef<HTMLDivElement | null>(null);
   const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
+  const t = useTranslations("cemre");
 
   return (
     <motion.div
@@ -24,29 +25,18 @@ export default function CemreGüner  () {
       transition={{ duration: 1 }}
     >
       {/* CONTAINER */}
-      <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
+      <div className="h-full lg:flex">
         {/* TEXT CONTAINER */}
         <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2">
-          {/* BIOGRAPHY CONTAINER */}
-          <div className="flex flex-col gap-12 justify-center">
-            
-            {/* BIOGRAPHY TITLE */}
-            <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
-            {/* BIOGRAPHY DESC */}
-            <p className="text-lg">
-              Highly motivated and experienced English Teacher with a Bachelor’s degree in English Language and Literature from Beykent
-University, complemented by a minor in Translation and Interpreting. Completed Pedagogical Teacher Training at Marmara
-University, equipped with effective teaching methodologies and classroom management skills. Proven ability to create engaging,
-student-centered learning environments. Strong communication, organizational, and interpersonal skills, dedicated to
-supporting students’ academic and personal growth.
-            </p>
-            {/* BIOGRAPHY QUOTE */}
-            <span className="italic">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </span>
-            
-             {/* BIOGRAPHY SIGN SVG*/}
-            <div className="self-end">
+          {/* BIO + SKILLS: side-by-side on large screens */}
+          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-12">
+            {/* BIOGRAPHY CONTAINER (left) */}
+            <div className="flex flex-col gap-6 justify-center lg:w-2/3">
+              {/* BIOGRAPHY TITLE */}
+              <h1 className="font-bold text-2xl">{t("biography")}</h1>
+              {/* BIOGRAPHY DESC */}
+              <p className="text-lg">{t("bio")}</p>
+              <div className="self-end">
               <svg
                 width="283"
                 height="162"
@@ -61,45 +51,32 @@ supporting students’ academic and personal growth.
                   strokeLinecap="round"
                 />
               </svg>
-          {/* SKILLS CONTAINER */}
-          <div className="flex flex-col gap-12 justify-center" ref={skillRef}>
-            {/* SKILL TITLE */}
-            <motion.h2
-              initial={{ x: "-300px" }}
-              animate={isSkillRefInView ? { x: 0 } : {}}
-              transition={{ delay: 0.2 }}
-              className="font-bold text-2xl"
-            >
-              SKILLS
-            </motion.h2>
-            {/* SKILL LIST */}
-            <motion.div initial={{x:"-300px"}} animate={isSkillRefInView ? {x:0} : {}} transition={{delay:0.5}}  className="flex gap-4 flex-wrap">
-              <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Classroom Management
-              </div>
-              <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Curriculum Development
-              </div>
-              <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-               Technology Integration
-              </div>
-              <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Communication skills
-              </div>
-              <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Lesson planning
-              </div>
-              <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Critical thinking
-              </div>
-              <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Cultural awareness
-              </div>
-              <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Digital Literacy
-              </div>
-            </motion.div>
-          </div>
+            </div>
+
+            {/* SKILLS CONTAINER (right) */}
+            <div className="flex flex-col gap-6 justify-center lg:w-1/3" ref={skillRef}>
+              {/* SKILL TITLE */}
+              <motion.h2
+                initial={{ x: "-300px" }}
+                animate={isSkillRefInView ? { x: 0 } : {}}
+                transition={{ delay: 0.2 }}
+                className="font-bold text-2xl"
+              >
+                {t("skills.title")}
+              </motion.h2>
+              {/* SKILL LIST */}
+              <motion.div initial={{ x: "-300px" }} animate={isSkillRefInView ? { x: 0 } : {}} transition={{ delay: 0.5 }} className="flex gap-4 flex-wrap">
+                <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">{t("skills.classroomManagement")}</div>
+                <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">{t("skills.curriculumDevelopment")}</div>
+                <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">{t("skills.technologyIntegration")}</div>
+                <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">{t("skills.communication")}</div>
+                <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">{t("skills.lessonPlanning")}</div>
+                <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">{t("skills.criticalThinking")}</div>
+                <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">{t("skills.culturalAwareness")}</div>
+                <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">{t("skills.digitalLiteracy")}</div>
+              </motion.div>
+            </div>
+
             {/* SKILL SCROLL SVG */}
             <motion.svg
               initial={{ opacity: 0.2, y: 0 }}
@@ -124,137 +101,114 @@ supporting students’ academic and personal growth.
               ></path>
             </motion.svg>
           </div>
-          <div className="flex flex-col lg:flex-row">
-          {/* EXPERIENCE CONTAINER */}
-          <div
-            className="flex flex-col gap-12 justify-center pb-48 w-full lg:w-2/3"
-            ref={experienceRef}
-          >
-            {/* EXPERIENCE TITLE */}
-            <motion.h2
-              initial={{ x: "-300px" }}
-              animate={isExperienceRefInView ? { x: "0" } : {}}
-              transition={{ delay: 0.2 }}
-              className="font-bold text-2xl"
-            >
-              EXPERIENCE
-            </motion.h2>
-            {/* EXPERIENCE LIST */}
-            <motion.div
-              initial={{ x: "-300px" }}
-              animate={isExperienceRefInView ? { x: "0" } : {}}
-              className=""
-            >
-              {/* EXPERIENCE LIST ITEM */}
-              <div className="flex justify-between h-48">
-                {/* LEFT */}
-                <div className="w-1/3 ">
-                  {/* JOB TITLE */}
-                  <div className="bg-primary p-2 font-semibold  rounded">
-                    English Teacher & Class Advisor
-                  </div>
-                  {/* JOB DESC */}
-                  <div  className="p-3 text-sm italic overflow-hidden text-ellipsis max-h-32">
-                    Develop and deliver tailored lesson plans addressing diverse student needs and learning styles.
-Support students’ academic progress and personal development as a class advisor. Organize extracurricular activities, including performances, bulletin board displays, and educational trips to enhance student engagement.
 
-                  </div>
-                  {/* JOB DATE */}
-                  <div className="p-3 text-black text-sm font-semibold ">
-                    2025 - Present
-                  </div>
-                  {/* JOB COMPANY */}
-                  <div className="p-1 rounded bg-primary/30 text-m font-semibold w-fit">
-                     Era College
-                  </div>
-                </div>
-                {/* CENTER */}
-                <div className="w-1/6 flex justify-center">
-                  {/* LINE */}
-                  <div className="w-1 h-full bg-gray-600 rounded relative">
-                    {/* LINE CIRCLE */}
-                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-primary bg-white -left-2"></div>
-                  </div>
-                </div>
-                {/* RIGHT */}
-                <div className="w-1/3 "></div>
-              </div>
-              {/* EXPERIENCE LIST ITEM */}
-              <div className="flex justify-between h-48">
-                {/* LEFT */}
-                <div className="w-1/3 "></div>
-                {/* CENTER */}
-                <div className="w-1/6 flex justify-center">
-                  {/* LINE */}
-                  <div className="w-1 h-full bg-gray-600 rounded relative">
-                    {/* LINE CIRCLE */}
-                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-primary bg-white -left-2"></div>
-                  </div>
-                </div>
-                {/* RIGHT */}
-                <div className="w-1/3 ">
-                  {/* JOB TITLE */}
-                  <div className="bg-primary p-2 font-semibold  rounded">
-                     English Teacher
-
-                  </div>
-                  {/* JOB DESC */}
-                  <div className="p-3 text-sm italic overflow-hidden text-ellipsis max-h-32">
-                    Designed and implemented creative teaching methods to foster a passion for literature and language.
-Coordinated extracurricular activities to promote collaboration and a positive classroom community.
-                  </div>
-                  {/* JOB DATE */}
-                  <div className="p-3 text-black text-sm font-semibold">
-                    2022 - 2023
-                  </div>
-                  {/* JOB COMPANY */}
-                  <div className="p-1 rounded bg-primary/30 text-sm font-semibold w-fit">
-                    Sadabad Anatolian High School
-                  </div>
-                </div>
-              </div>
-              {/* EXPERIENCE LIST ITEM */}
-              <div className="flex justify-between h-48">
-                 {/* LEFT */}
-                <div className="w-1/3 ">
-                  {/* JOB TITLE */}
-                  <div className="bg-primary p-2 font-semibold  rounded">
-                    English Teacher (Intern)
-
-                  </div>
-                  {/* JOB DESC */}
-                  <div  className="p-3 text-sm italic overflow-hidden text-ellipsis max-h-32">
-                    Created engaging lesson plans to clarify complex concepts and accommodate various learning styles.
-Delivered lessons that enhanced students’ comprehension and language skills.
-                   </div>
-                  {/* JOB DATE */}
-                  <div className="p-3 text-black text-sm font-semibold">
-                    2021-2022
-                 </div>
-                  {/* JOB COMPANY */}
-                  <div className="p-1 rounded bg-primary/30 text-sm font-semibold w-fit">
-                   Fatih Atatürk Contemporary Life Multi-Program Anatolian High School
-                  </div>
-                </div>
-                {/* CENTER */}
-                <div className="w-1/6 flex justify-center">
-                  {/* LINE */}
-                  <div className="w-1 h-full bg-gray-600 rounded relative">
-                    {/* LINE CIRCLE */}
-                    <div className="absolute w-5 h-5 rounded-full ring-4 ring-primary bg-white -left-2"></div>
-                  </div>
-                </div>
-                {/* RIGHT */}
-                <div className="w-1/3 "></div>
-              </div>
-            </motion.div>
           </div>
-        </div></div>
-         {/* BRAIN CONTAINER */}
-  <div className="hidden lg:flex w-1/3 sticky top-0 justify-center items-start">
-    <Brain scrollYProgress={scrollYProgress} />
-  </div>
-</div>
+          <div className="flex flex-col lg:flex-row">
+            {/* EXPERIENCE CONTAINER */}
+            <div
+              className="flex flex-col gap-12 justify-center pb-48 w-full lg:w-2/3"
+              ref={experienceRef}
+            >
+              {/* EXPERIENCE TITLE */}
+              <motion.h2
+                initial={{ x: "-300px" }}
+                animate={isExperienceRefInView ? { x: "0" } : {}}
+                transition={{ delay: 0.2 }}
+                className="font-bold text-2xl"
+              >
+                {t("experience.title")}
+              </motion.h2>
+              {/* EXPERIENCE LIST */}
+              <motion.div
+                initial={{ x: "-300px" }}
+                animate={isExperienceRefInView ? { x: "0" } : {}}
+                className=""
+              >
+                {/* EXPERIENCE LIST ITEM */}
+                <div className="flex justify-between h-48">
+                  {/* LEFT */}
+                  <div className="w-1/3 ">
+                    {/* JOB TITLE */}
+                          <div className="bg-primary p-2 font-semibold  rounded">{t("experience.items.0.title")}</div>
+                    {/* JOB DESC */}
+                    <div className="p-3 text-sm italic">{t("experience.items.0.desc")}</div>
+                    {/* JOB DATE */}
+                    <div className="p-3 text-black text-sm font-semibold ">{t("experience.items.0.date")}</div>
+                    {/* JOB COMPANY */}
+                    <div className="p-1 rounded bg-primary/30 text-m font-semibold w-fit">{t("experience.items.0.company")}</div>
+                  </div>
+                  {/* CENTER */}
+                  <div className="w-1/6 flex justify-center">
+                    {/* LINE */}
+                    <div className="w-1 h-full bg-gray-600 rounded relative">
+                      {/* LINE CIRCLE */}
+                      <div className="absolute w-5 h-5 rounded-full ring-4 ring-primary bg-white -left-2"></div>
+                    </div>
+                  </div>
+                  {/* RIGHT */}
+                  <div className="w-1/3 "></div>
+                </div>
+
+                {/* EXPERIENCE LIST ITEM */}
+                <div className="flex justify-between h-48">
+                  {/* LEFT */}
+                  <div className="w-1/3 "></div>
+                  {/* CENTER */}
+                  <div className="w-1/6 flex justify-center">
+                    {/* LINE */}
+                    <div className="w-1 h-full bg-gray-600 rounded relative">
+                      {/* LINE CIRCLE */}
+                      <div className="absolute w-5 h-5 rounded-full ring-4 ring-primary bg-white -left-2"></div>
+                    </div>
+                  </div>
+                  {/* RIGHT */}
+                  <div className="w-1/3 ">
+                    {/* JOB TITLE */}
+                    <div className="bg-primary p-2 font-semibold  rounded">{t("experience.items.1.title")}</div>
+                    {/* JOB DESC */}
+                    <div className="p-3 text-sm italic">{t("experience.items.1.desc")}</div>
+                    {/* JOB DATE */}
+                    <div className="p-3 text-black text-sm font-semibold">{t("experience.items.1.date")}</div>
+                    {/* JOB COMPANY */}
+                    <div className="p-1 rounded bg-primary/30 text-sm font-semibold w-fit">{t("experience.items.1.company")}</div>
+                  </div>
+                </div>
+
+                {/* EXPERIENCE LIST ITEM */}
+                <div className="flex justify-between h-48">
+                  {/* LEFT */}
+                  <div className="w-1/3 ">
+                    {/* JOB TITLE */}
+                    <div className="bg-primary p-2 font-semibold  rounded">{t("experience.items.2.title")}</div>
+                    {/* JOB DESC */}
+                    <div className="p-3 text-sm italic">{t("experience.items.2.desc")}</div>
+                    {/* JOB DATE */}
+                    <div className="p-3 text-black text-sm font-semibold">{t("experience.items.2.date")}</div>
+                    {/* JOB COMPANY */}
+                    <div className="p-1 rounded bg-primary/30 text-sm font-semibold w-fit">{t("experience.items.2.company")}</div>
+                  </div>
+                  {/* CENTER */}
+                  <div className="w-1/6 flex justify-center">
+                    {/* LINE */}
+                    <div className="w-1 h-full bg-gray-600 rounded relative">
+                      {/* LINE CIRCLE */}
+                      <div className="absolute w-5 h-5 rounded-full ring-4 ring-primary bg-white -left-2"></div>
+                    </div>
+                  </div>
+                  {/* RIGHT */}
+                  <div className="w-1/3 "></div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* place Brain to the right of EXPERIENCE on large screens */}
+            <div className="hidden lg:flex lg:w-1/3 sticky top-16 h-screen justify-center items-start overflow-visible">
+              <div className="w-full max-w-[520px] overflow-visible">
+                <Brain scrollYProgress={scrollYProgress} />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </motion.div>
   );

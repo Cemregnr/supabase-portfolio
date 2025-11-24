@@ -4,13 +4,15 @@ import Image from "next/image";
 
 export const Card = () => {
   return (
-    <div className="relative w-80 h-60 overflow-hidden rounded-lg">
-      <div className="absolute inset-0 transition-all duration-700 ease-out hover:object-[center_top]">
+    <div className="relative w-80 h-60 rounded-lg">
+      {/* crop wrapper: each edge will be clipped by 1cm */}
+      <div className="absolute inset-0 crop-rect rounded-lg">
         <Image
-          src="/education.jpg" // kendi resmini buraya koy
+          src="/education.jpg"
           alt="Example"
-          fill
-          className="object-cover object-[center_60%] transition-all duration-700 ease-out hover:object-[center_40%]"
+          width={1200}
+          height={900}
+          className="card-image"
         />
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent text-white">

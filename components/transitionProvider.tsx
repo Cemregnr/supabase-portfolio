@@ -47,10 +47,10 @@ const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 0.5 } }}
         />
-        <div className="h-24">
+        <div className="fixed top-0 left-0 right-0 z-50">
           <Navbar />
         </div>
-        <div className="min-h-[calc(100vh-6rem)]">{children}</div>
+        <div className="pt-24 min-h-[calc(100vh-6rem)] overflow-x-hidden">{children}</div>
         <Footer />
       </div>
     </AnimatePresence>
