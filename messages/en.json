@@ -1,7 +1,15 @@
 {
-  "HomePage": {},
+  "HomePage": {
+    "title": "Cemre Güner Portfolio",
+    "subtitle": "Software Developer & Tech Enthusiast",
+    "welcome": "Welcome",
+    "description": "Building amazing projects with modern web technologies."
+  },
   "Navbar": {
+    "home": "Home",
+    "about": "About",
     "blog": "Blog",
+    "cemre-guner": "Cemre Güner",
     "contact": "Contact"
   },
   "LanguageSwitcher": {

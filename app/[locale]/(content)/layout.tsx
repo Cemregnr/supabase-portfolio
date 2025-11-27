@@ -5,6 +5,8 @@ import TransitionProvider from "@/components/transitionProvider";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { VerticalSidebar } from "@/components/vertical-sidebar";
 
 export default async function RootLayout({
   children,
@@ -20,6 +22,14 @@ export default async function RootLayout({
   }
 
   return (
-    <TransitionProvider>{children}</TransitionProvider>
+    <TransitionProvider>
+      <div className="relative">
+        <VerticalSidebar />
+        <div className="pl-20 pt-6">
+          <Breadcrumb />
+          {children}
+        </div>
+      </div>
+    </TransitionProvider>
   );
 }

@@ -25,7 +25,7 @@ const TransitionProvider = ({ children }: { children: React.ReactNode }) => {
     <AnimatePresence mode="wait">
       <div
         key={pathName}
-        className="w-screen min-h-screen bg-gradient-to-b from-primary/10 to-primary/60"
+        className="w-screen min-h-screen bg-linear-to-b from-primary/10 to-primary/60"
       >
         <motion.div
           className="h-screen w-screen fixed bg-black rounded-b-[100px] z-40"

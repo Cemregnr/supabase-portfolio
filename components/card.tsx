@@ -15,7 +15,7 @@ export const Card = () => {
           className="card-image"
         />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent text-white">
+      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-transparent from-black/60 to-transparent text-white">
         <h3 className="text-lg font-semibold">Project Title</h3>
         <p className="text-sm">Project Description</p>
       </div>

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageDialog } from "@/components/language-dialog";
+import { AuthButton } from "@/components/auth-button";
 import {motion} from "framer-motion"
 
 export const Navbar = () => {
@@ -43,6 +44,18 @@ export const Navbar = () => {
       <div className="h-24 flex justify-between py-8 mx-auto container items-center px-4 sm:px-8 md:px-12 lg:px-20 xl:-48">
       <div className="flex gap-10 items-center w-1/3">
         <Link
+          href="/"
+          className="border-b-2 border-transparent hover:border-primary transition-colors duration-200"
+        >
+          {t("Navbar.home")}
+        </Link>
+        <Link
+          href="/cemre-guner"
+          className="border-b-2 border-transparent hover:border-primary transition-colors duration-200"
+        >
+          {t("Navbar.cemre-guner")}
+        </Link>
+        <Link
           href="/blog"
           className="border-b-2 border-transparent hover:border-primary transition-colors duration-200"
         >
@@ -73,11 +86,11 @@ export const Navbar = () => {
         <a
           className="border/40 border-b-2 hover:border-primary duration-200 cursor-pointer"
           href="/cemre-guner"
-          
         >
           Cemre Güner
         </a>
 
+        <AuthButton />
         <LanguageDialog />
       </div>
       </div>

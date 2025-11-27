@@ -2,10 +2,25 @@
 
 import Image from "next/image";
 import { Card } from "@/components/card";
+import { useTranslations } from "next-intl";
 
 export default function HomePage() {
+  const t = useTranslations("HomePage");
+  
   return (
     <div className="container mx-auto px-4 py-16 flex flex-col items-center">
+      {/* HERO SECTION */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+          {t("title")}
+        </h1>
+        <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+          {t("subtitle")}
+        </p>
+        <p className="text-lg text-gray-500 dark:text-gray-300">
+          {t("description")}
+        </p>
+      </div>
 
       {/* IMAGE CONTAINER */}
       <div

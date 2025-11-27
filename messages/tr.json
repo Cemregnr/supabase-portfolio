@@ -1,8 +1,16 @@
 {
-  "HomePage": {},
+  "HomePage": {
+    "title": "Cemre Güner Portfolio",
+    "subtitle": "Yazılım Geliştirici & Teknoloji Meraklısı",
+    "welcome": "Hoş Geldiniz",
+    "description": "Modern web teknolojileri ile harika projeler geliştiriyorum."
+  },
   "Navbar": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
     "blog": "Blog",
     "authors": "Yazarlar",
+    "cemre-guner": "Cemre Güner",
     "edu-philosphy": "Eğitim Felsefesi",
     "learning-theories": "Öğrenme Teorileri",
     "contact": "İletişim"
