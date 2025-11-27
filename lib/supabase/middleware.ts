@@ -33,15 +33,15 @@ export async function updateSession(request: NextRequest) {
   const { data } = await supabase.auth.getClaims();
   const user = data?.claims;
 
-  // Protected route kontrolü - locale zaten pathname'de var
+  
   if (
     !user &&
     request.nextUrl.pathname.includes('/protected')
   ) {
     const url = request.nextUrl.clone();
-    // Mevcut locale'i koru
+    
     const pathParts = request.nextUrl.pathname.split('/');
-    const locale = pathParts[1]; // /tr/protected veya /en/protected
+    const locale = pathParts[1]; 
     url.pathname = `/${locale}/auth/login`;
     return NextResponse.redirect(url);
   }

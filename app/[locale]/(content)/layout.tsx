@@ -25,9 +25,13 @@ export default async function RootLayout({
     <TransitionProvider>
       <div className="relative">
         <VerticalSidebar />
-        <div className="pl-20 pt-6">
-          <Breadcrumb />
-          {children}
+        <div className="ml-16">
+          <div className="px-8 pt-6">
+            <Breadcrumb />
+          </div>
+          <div className="px-8">
+            {children}
+          </div>
         </div>
       </div>
     </TransitionProvider>

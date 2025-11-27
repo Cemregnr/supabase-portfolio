@@ -21,7 +21,9 @@ const geistSans = Geist({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>{children}</body>
+      <body className={`${geistSans.className} antialiased`} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

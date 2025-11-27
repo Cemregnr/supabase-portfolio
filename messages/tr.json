@@ -1,12 +1,19 @@
 {
   "HomePage": {
-    "title": "Cemre Güner Portfolio",
+    "title": "Eğitim ile Geleceği Şekillendir",
+    "description": "Öğrencilerin ilgi çekici dersler ve anlamlı uygulamalar aracılığıyla İngilizce'de kendilerine güven kazanmalarına yardımcı oluyorum. Amacım her öğrencinin desteklendiğini, motive olduğunu ve gelişmeye hevesli hissettirmek.",
     "subtitle": "Yazılım Geliştirici & Teknoloji Meraklısı",
-    "welcome": "Hoş Geldiniz",
-    "description": "Modern web teknolojileri ile harika projeler geliştiriyorum."
+    "welcome": "Hoş Geldiniz"
+  },
+  "Auth": {
+    "signIn": "Giriş Yap",
+    "signUp": "Kayıt Ol",
+    "signOut": "Çıkış Yap",
+    "welcome": "Merhaba"
   },
   "Navbar": {
-    "home": "Ana Sayfa",
+    "home": "Ana",
+    "page": "Sayfa",
     "about": "Hakkımda",
     "blog": "Blog",
     "authors": "Yazarlar",
@@ -14,6 +21,14 @@
     "edu-philosphy": "Eğitim Felsefesi",
     "learning-theories": "Öğrenme Teorileri",
     "contact": "İletişim"
+  },
+  "Breadcrumbs": {
+    "home": "Ana Sayfa",
+    "blog": "Blog", 
+    "newPost": "Yeni Yazı",
+    "post": "Yazı",
+    "contact": "İletişim",
+    "about": "Hakkında"
   },
   "LanguageSwitcher": {
     "selectLanguage": "Dil Seçin",
@@ -29,18 +44,70 @@
     "Send": "Gönder",
     "Success": "Mesajınız başarı ile gönderilmiştir",
     "Fault": "Mesajınız gönderilemedi!"
-  }
+  },
+  
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Web geliştirme hakkında düşünceler, öğreticiler ve görüşler",
+    "noPosts": "Henüz hiç yazı yok.",
+    "createPost": "Yeni Yazı Oluştur",
+    "loginToCreate": "Yazı oluşturmak için giriş yapın",
+    "authCta": "Bir yazı yazmak ister misin?",
+    "signUp": "Kayıt Ol",
+    "logIn": "Giriş Yap",
+    "beFirst": "İlk blog yazısını yazan sen ol!",
+    "loading": "Yüklüyor...",
+    "author": "Anonim Yazar",
+    "more": "daha fazla",
+    "createFirstPost": "İlk Yazıyı Oluştur",
+    "hideDrafts": "Taslakları Gizle",
+    "showDrafts": "Taslakları Göster",
+    "draft": "Taslak",
+    "readMore": "Devamını Oku",
+    "publishedOn": "Yayınlanma tarihi",
+    "by": "Yazar",
+    "newPost": {
+      "title": "Yeni Blog Yazısı",
+      "subtitle": "Toplulukla düşüncelerinizi paylaşın",
+      "postDetails": "Yazı Detayları",
+      "titleLabel": "Başlık",
+      "titlePlaceholder": "Yazı başlığınızı girin...",
+      "excerptLabel": "Özet",
+      "excerptPlaceholder": "Yazınızın kısa açıklaması (isteğe bağlı)",
+      "excerptHelp": "Boş bırakılırsa içerikten otomatik oluşturulacak",
+      "contentLabel": "İçerik",
+      "contentPlaceholder": "Yazı içeriğinizi buraya yazın...",
+      "authorInfo": "Yazar Bilgileri",
+      "addAuthor": "Yazar Ekle",
+      "removeAuthor": "Kaldır",
+      "authorRole": "Yazar",
+      "tagsLabel": "Etiketler",
+      "tagsPlaceholder": "İngilizce Öğretimi, Dil Bilgisi, Kelime Bilgisi (virgülle ayrılmış)",
+      "tagsHelp": "Daha önce kullandığınız etiketler önerilecektir",
+      "publishLabel": "Hemen yayınla",
+      "publishButton": "Yazıyı Yayınla",
+      "draftButton": "Taslak Kaydet",
+      "creating": "Oluşturuluyor...",
+      "profileWarning": "Lütfen önce profil sayfasından adınızı ve soyadınızı kaydedin.",
+      "backButton": "← Yazılara Dön",
+      "checkingAuth": "Yetkilendirme kontrol ediliyor...",
+      "authorLabel": "Yazar",
+      "addAuthorButton": "+ Yazar Bilgisi Ekle",
+      "publishImmediatelyLabel": "Hemen Yayınla",
+      "saveDraftButton": "Taslak Olarak Kaydet",
+      "cancelButton": "İptal",
+      "publishSuccess": "Yazı başarıyla yayınlandı!",
+      "draftSuccess": "Taslak başarıyla kaydedildi!",
+      "publishError": "Yazı yayınlanırken hata oluştu. Lütfen tekrar deneyin.",
+      "requiredFields": "Lütfen tüm gerekli alanları doldurun.",
+      "removeButton": "Kaldır",
+      "creatingButton": "Oluşturuluyor...",
+      "createPostError": "Yazı oluşturulamadı. Lütfen tekrar deneyin.",
+      "generalError": "Bir hata oluştu. Lütfen tekrar deneyin."
+    }
+  },
 
-  ,"contact": {
-    "message": "Mesaj",
-    "email": "Elektronik Posta Adresi",
-    "regards": "Saygılarımla",
-    "send": "Gönder",
-    "success": "Mesajınız başarı ile gönderilmiştir",
-    "fault": "Mesajınız gönderilemedi!"
-  }
-
-  ,"cemre": {
+  "cemre": {
     "biography": "BİYOGRAFİ",
     "bio": "Beykent Üniversitesi İngiliz Dili ve Edebiyatı bölümünden lisans derecesine sahip, çeviri ve mütercim tercümanlık yan dalı olan deneyimli ve motive bir İngilizce Öğretmeniyim. Marmara Üniversitesi Pedagojik Formasyonunu tamamladım; etkili öğretim yöntemleri ve sınıf yönetimi becerilerine sahibim. Öğrenci merkezli, ilgi çekici öğrenme ortamları oluşturma konusunda kanıtlanmış başarı; güçlü iletişim, organizasyon ve kişilerarası becerilerimle öğrencilerin akademik ve kişisel gelişimlerini desteklemeye adanmış durumdayım.",
     "skills": {

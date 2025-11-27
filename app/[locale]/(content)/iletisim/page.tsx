@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import { useTranslations } from "next-intl";
 
 const ContactPage = () => {
-  const t = useTranslations("contact");
+  const t = useTranslations("Contact");
   const form = useRef<HTMLFormElement | null>(null);
 
   const [success, setSuccess] = useState(false);
@@ -51,52 +51,52 @@ const ContactPage = () => {
         ref={form}
         className="w-full max-w-md rounded-xl text-lg flex flex-col gap-4 p-6 bg-transparent"
       >
-        {/* MESSAGE */}
-        <label className="font-semibold">{t("message")}</label>
+        
+        <label className="font-semibold">{t("Message")}</label>
         <textarea
           rows={6}
           className="bg-transparent  resize-y py-3 px-3 rounded-md min-h-32 text-lg"
           name="user_message"
           required
-          aria-label={t("message")}
+          aria-label={t("Message")}
         />
 
-        {/* EMAIL */}
-        <label className="font-semibold">{t("email")}</label>
+        
+        <label className="font-semibold">{t("E-mail address")}</label>
         <input
           name="user_email"
           type="email"
           required
           className="bg-transparent border-b-2 border-b-black outline-none py-2 text-lg"
-          aria-label={t("email")}
+          aria-label={t("E-mail address")}
         />
 
-        {/* REGARDS - no underline or extra space below */}
-        <label className="font-semibold">{t("regards")}</label>
+        
+        <label className="font-semibold">{t("Regards")}</label>
         <input
           name="user_regards"
           type="text"
           className="bg-transparent outline-none py-1 text-lg"
-          aria-label={t("regards")}
+          aria-label={t("Regards")}
         />
 
-        {/* SEND BUTTON */}
+      
         <button
           type="submit"
           disabled={isSending}
           className="bg-primary rounded font-semibold text-white py-3 mt-1 disabled:opacity-60"
         >
-          {isSending ? "Gönderiliyor..." : t("send")}
+          {isSending ? "Gönderiliyor..." : t("Send")}
         </button>
 
-        {/* SUCCESS MESSAGE */}
+        
         {success && (
-          <div className="text-green-600 font-semibold mt-2">{t("success")}</div>
+          <div className="text-green-600 font-semibold mt-2">{t("Success")}</div>
         )}
 
-        {/* ERROR MESSAGE */}
+        
         {error && (
-          <div className="text-red-600 font-semibold mt-2">{t("fault")}</div>
+          <div className="text-red-600 font-semibold mt-2">{t("Fault")}</div>
         )}
       </form>
     </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 export const Card = () => {
   return (
     <div className="relative w-80 h-60 rounded-lg">
-      {/* crop wrapper: each edge will be clipped by 1cm */}
+      
       <div className="absolute inset-0 crop-rect rounded-lg">
         <Image
           src="/education.jpg"

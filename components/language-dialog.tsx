@@ -1,7 +1,7 @@
 "use client";
 
-import React, { use } from "react";
-import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import { Languages } from "lucide-react";
 import {
   Dialog,
   DialogTrigger,
@@ -16,12 +16,26 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 export function LanguageDialog() {
+  const [mounted, setMounted] = useState(false);
   const t = useTranslations("LanguageSwitcher");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <button className="p-2 border hover:border-primary duration-200 cursor-pointer rounded-full">
+        <Languages size={20} />
+      </button>
+    );
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <button className="p-2 border hover:border-primary duration-200 cursor-pointer rounded-full">
-          <Image src="/globe.svg" alt="Language" width={24} height={24} />
+          <Languages size={20} />
         </button>
       </DialogTrigger>
 

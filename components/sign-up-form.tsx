@@ -27,7 +27,7 @@ export function SignUpForm({
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const { getRedirectUrl } = useAuthRedirect();
+  const { redirectAfterAuth, getRedirectUrl } = useAuthRedirect();
 
   useEffect(() => {
     getRedirectUrl();
@@ -46,15 +46,32 @@ export function SignUpForm({
     }
 
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/protected`,
-        },
+          emailRedirectTo: `${window.location.origin}/auth/confirm`
+        }
       });
-      if (error) throw error;
-      router.push("/auth/sign-up-success");
+      
+      if (error) {
+        if (error.message.includes('already registered')) {
+          setError('Bu e-posta adresi zaten kayıtlı. Giriş yapmayı deneyin.');
+        } else {
+          setError(error.message);
+        }
+        return;
+      }
+
+      // Check if email confirmation is needed
+      if (data.user && !data.session) {
+        // Email confirmation needed
+        router.push('/auth/sign-up-success');
+      } else {
+        // Direct login
+        redirectAfterAuth();
+      }
+      
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : "An error occurred");
     } finally {

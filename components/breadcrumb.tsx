@@ -12,18 +12,26 @@ export function Breadcrumb() {
   const locale = params.locale as string;
   const t = useTranslations("Navbar");
 
-  // Remove locale from pathname for processing
+  
   const pathWithoutLocale = pathname.replace(`/${locale}`, "") || "/";
   
-  // Split path into segments
+  
   const pathSegments = pathWithoutLocale.split("/").filter(segment => segment !== "");
   
-  // Don't show breadcrumbs on home page
+  
   if (pathWithoutLocale === "/" || pathSegments.length === 0) {
     return null;
   }
 
-  // Create breadcrumb items
+ 
+  const slugToTitle = (slug: string) => {
+    return slug
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
+  
   const breadcrumbItems = [
     {
       label: t("home"),
@@ -32,12 +40,12 @@ export function Breadcrumb() {
     }
   ];
 
-  // Add path segments
+  
   let currentPath = "";
   pathSegments.forEach((segment, index) => {
     currentPath += `/${segment}`;
     
-    // Get translation key for segment
+    
     let label = segment;
     if (segment === "cemre-guner") {
       label = t("cemre-guner");
@@ -46,8 +54,7 @@ export function Breadcrumb() {
     } else if (segment === "contact") {
       label = t("contact");
     } else {
-      // Capitalize first letter for unknown segments
-      label = segment.charAt(0).toUpperCase() + segment.slice(1);
+    
     }
 
     breadcrumbItems.push({
@@ -63,13 +70,13 @@ export function Breadcrumb() {
         <div key={item.href} className="flex items-center">
           {index > 0 && <ChevronRight className="w-4 h-4 mx-2" />}
           {index === breadcrumbItems.length - 1 ? (
-            // Current page - not a link
+            
             <span className="text-gray-800 dark:text-gray-200 font-medium flex items-center">
               {item.isHome && <Home className="w-4 h-4 mr-1" />}
               {item.label}
             </span>
           ) : (
-            // Previous pages - links
+            
             <Link
               href={item.href}
               className="hover:text-primary transition-colors flex items-center"

@@ -41,58 +41,52 @@ export const Navbar = () => {
         hidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="h-24 flex justify-between py-8 mx-auto container items-center px-4 sm:px-8 md:px-12 lg:px-20 xl:-48">
-      <div className="flex gap-10 items-center w-1/3">
-        <Link
-          href="/"
-          className="border-b-2 border-transparent hover:border-primary transition-colors duration-200"
-        >
-          {t("Navbar.home")}
-        </Link>
-        <Link
-          href="/cemre-guner"
-          className="border-b-2 border-transparent hover:border-primary transition-colors duration-200"
-        >
-          {t("Navbar.cemre-guner")}
-        </Link>
-        <Link
-          href="/blog"
-          className="border-b-2 border-transparent hover:border-primary transition-colors duration-200"
-        >
-          {t("Navbar.blog")}
-        </Link>
-        <Link
-          href="/iletisim"
-          className="border-b-2 border-transparent hover:border-primary transition-colors duration-200"
-        >
-          {t("Navbar.contact")}
-        </Link>
-      </div>
-      {/* LOGO */}
-      <Link href={"/"} className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center  ">
-      <span className="text-white mr-1 ">Home</span>
-      <span className="w-12 h-8 bg-white text-black flex items-center justify-center rounded ">Page</span>
-      </Link>
-      <div className="flex items-center gap-4 w-1/3 ">
-        <div>
-          <SearchIcon className="inline mr-2  " />
-          <input
-            type="text"
-            placeholder="..."
-            className="px-2 border-b-2 border/40 hover:border-primary duration-200 cursor-pointer "
-          />
+      <div className="min-h-16 flex justify-between items-center mx-auto container px-2 sm:px-4 md:px-8 lg:px-12 xl:px-20 py-2 sm:py-4">
+        
+        <div className="flex gap-2 sm:gap-4 lg:gap-6 items-center shrink-0">
+          <Link
+            href="/cemre-guner"
+            className="text-xs sm:text-sm border-b-2 border-transparent hover:border-primary transition-colors duration-200 whitespace-nowrap"
+          >
+            {t("Navbar.cemre-guner")}
+          </Link>
+          <Link
+            href="/blog"
+            className="text-xs sm:text-sm border-b-2 border-transparent hover:border-primary transition-colors duration-200 whitespace-nowrap"
+          >
+            {t("Navbar.blog")}
+          </Link>
+          <Link
+            href="/iletisim"
+            className="text-xs sm:text-sm border-b-2 border-transparent hover:border-primary transition-colors duration-200 whitespace-nowrap"
+          >
+            {t("Navbar.contact")}
+          </Link>
         </div>
-
-        <a
-          className="border/40 border-b-2 hover:border-primary duration-200 cursor-pointer"
-          href="/cemre-guner"
-        >
-          Cemre Güner
-        </a>
-
-        <AuthButton />
-        <LanguageDialog />
-      </div>
+        
+        
+        <Link href={"/"} className="text-xs sm:text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center mx-2 shrink-0">
+          <span className="text-white mr-1 text-xs sm:text-sm">{t("Navbar.home")}</span>
+          <span className="w-8 sm:w-10 lg:w-12 h-6 sm:h-7 lg:h-8 bg-white text-black flex items-center justify-center rounded text-xs">{t("Navbar.page")}</span>
+        </Link>
+        
+        
+        <div className="flex items-center gap-1 sm:gap-2 lg:gap-4 justify-end shrink-0">
+          <div className="hidden sm:flex items-center">
+            <SearchIcon className="inline mr-1 sm:mr-2 w-3 sm:w-4 h-3 sm:h-4" />
+            <input
+              type="text"
+              placeholder="..."
+              className="px-1 sm:px-2 border-b-2 border-gray-300 hover:border-primary duration-200 cursor-pointer bg-transparent text-xs sm:text-sm w-16 sm:w-20"
+            />
+          </div>
+          <div className="flex items-center">
+            <AuthButton />
+          </div>
+          <div className="flex items-center">
+            <LanguageDialog />
+          </div>
+        </div>
       </div>
     </div>
   );

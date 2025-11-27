@@ -5,6 +5,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { CheckCircle } from "lucide-react";
 
 export default function Page() {
   return (
@@ -12,17 +15,34 @@ export default function Page() {
       <div className="w-full max-w-sm">
         <div className="flex flex-col gap-6">
           <Card>
-            <CardHeader>
+            <CardHeader className="text-center">
+              <div className="mx-auto mb-4">
+                <CheckCircle className="w-16 h-16 text-green-500" />
+              </div>
               <CardTitle className="text-2xl">
-                Thank you for signing up!
+                Email Doğrulama Gerekli
               </CardTitle>
-              <CardDescription>Check your email to confirm</CardDescription>
+              <CardDescription>Lütfen email'inizi kontrol edin</CardDescription>
             </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                You&apos;ve successfully signed up. Please check your email to
-                confirm your account before signing in.
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground text-center">
+                Hesabınızı oluşturduk! Email adresinize gönderilen doğrulama linkine tıklayarak hesabınızı aktifleştirin.
               </p>
+              
+              <div className="bg-green-50 p-3 rounded-lg">
+                <p className="text-xs text-green-600 text-center">
+                  🎉 Email onaylama gerekmez! Direkt giriş yapabilirsiniz.
+                </p>
+              </div>
+              
+              <div className="flex flex-col gap-2">
+                <Button asChild className="w-full">
+                  <Link href="/auth/login">Hemen Giriş Yap</Link>
+                </Button>
+                <Button asChild variant="outline" className="w-full">
+                  <Link href="/">Ana Sayfaya Dön</Link>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>

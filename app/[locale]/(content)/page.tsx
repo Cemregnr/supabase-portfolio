@@ -8,21 +8,18 @@ export default function HomePage() {
   const t = useTranslations("HomePage");
   
   return (
-    <div className="container mx-auto px-4 py-16 flex flex-col items-center">
-      {/* HERO SECTION */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-          {t("title")}
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-          {t("subtitle")}
-        </p>
-        <p className="text-lg text-gray-500 dark:text-gray-300">
-          {t("description")}
-        </p>
-      </div>
+    <div className="container mx-auto px-4 py-8 flex flex-col items-center">
+      
+      <h1 className="font-bold text-black text-2xl md:text-3xl mb-4 text-center whitespace-nowrap">
+        {t('title')}
+      </h1>
 
-      {/* IMAGE CONTAINER */}
+     
+      <p className="text-lg md:text-xl leading-relaxed text-center max-w-2xl mb-8 px-4">
+        {t('description')}
+      </p>
+
+      
       <div
         className="
           relative 
@@ -34,7 +31,6 @@ export default function HomePage() {
           hover:h-[450px]   
         "
       >
-        {/* REAL IMAGE INSIDE */}
         <Image
           src="/education.jpg"
           alt="Profile"
@@ -42,17 +38,6 @@ export default function HomePage() {
           className="object-cover"
         />
       </div>
-
-      {/* TITLE */}
-      <h1 className="text-4xl font-bold pt-10 text-center md:text-6xl">
-        Shaping Futures Through Education
-      </h1>
-
-      {/* DESCRIPTION */}
-      <p className="pt-5 text-center max-w-2xl md:text-xl">
-        Explore my teaching portfolio, read my blog, and join me on a journey
-        of growth, creativity, and meaningful education.
-      </p>
     </div>
   );
 }

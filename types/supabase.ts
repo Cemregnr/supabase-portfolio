@@ -38,6 +38,9 @@ export interface Database {
           email: string;
           full_name: string;
           avatar_url: string | null;
+          bio: string | null;
+          website: string | null;
+          country: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -46,11 +49,17 @@ export interface Database {
           email: string;
           full_name: string;
           avatar_url?: string | null;
+          bio?: string | null;
+          website?: string | null;
+          country?: string | null;
         };
         Update: {
           email?: string;
           full_name?: string;
           avatar_url?: string | null;
+          bio?: string | null;
+          website?: string | null;
+          country?: string | null;
         };
       };
     };

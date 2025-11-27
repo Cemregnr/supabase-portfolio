@@ -1,16 +1,46 @@
 {
   "HomePage": {
-    "title": "Cemre Güner Portfolio",
+    "title": "Shape Future Through Education",
+    "description": "Helping learners build confidence in English through engaging lessons and meaningful practice. My goal is to make every student feel supported, motivated, and excited to grow.",
     "subtitle": "Software Developer & Tech Enthusiast",
-    "welcome": "Welcome",
-    "description": "Building amazing projects with modern web technologies."
+    "welcome": "Welcome"
+  },
+  "Auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "welcome": "Hey",
+    "email": "Email",
+    "password": "Password",
+    "signin": "Sign In",
+    "or": "Or",
+    "continueWithGoogle": "Continue with Google",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "loginError": "Login Error",
+    "loginSuccess": "Login Successful",
+    "accountCreated": "Account created and logged in!",
+    "emailNotConfirmed": "Email verification required. This should be automatic in development mode.",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "signUpLink": "Sign up",
+    "redirecting": "Successful! Redirecting to homepage..."
   },
   "Navbar": {
     "home": "Home",
+    "page": "Page",
     "about": "About",
     "blog": "Blog",
     "cemre-guner": "Cemre Güner",
     "contact": "Contact"
+  },
+  "Breadcrumbs": {
+    "home": "Home",
+    "blog": "Blog",
+    "newPost": "New Post",
+    "post": "Post",
+    "contact": "Contact",
+    "about": "About"
   },
   "LanguageSwitcher": {
     "selectLanguage": "Select Language",
@@ -18,7 +48,7 @@
     "close": "Close"
   },
   
-   "Contact": {
+  "Contact": {
     "Contact": "Contact",
     "Message": "Message",
     "E-mail address": "E-mail address",
@@ -26,18 +56,70 @@
     "Send": "Send",
     "Success": "Your message has been sent successfully!",
     "Fault": "Something went wrong!"
-  }
+  },
+  
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Thoughts, tutorials, and insights about web development",
+    "noPosts": "No posts yet.",
+    "createPost": "Create New Post",
+    "loginToCreate": "Login to create posts",
+    "authCta": "Want to write a post?",
+    "signUp": "Sign Up",
+    "logIn": "Log In",
+    "beFirst": "Be the first to write a blog post!",
+    "createFirstPost": "Create First Post",
+    "author": "Anonymous Author",
+    "more": "more",
+    "loading": "Loading...",
+    "hideDrafts": "Hide Drafts",
+    "showDrafts": "Show Drafts",
+    "draft": "Draft",
+    "readMore": "Read More",
+    "publishedOn": "Published on",
+    "by": "by",
+    "newPost": {
+      "title": "New Blog Post",
+      "subtitle": "Share your thoughts with the community",
+      "postDetails": "Post Details",
+      "titleLabel": "Title",
+      "titlePlaceholder": "Enter your post title...",
+      "excerptLabel": "Excerpt",
+      "excerptPlaceholder": "Brief description of your post (optional)",
+      "excerptHelp": "If left empty, will be auto-generated from content",
+      "contentLabel": "Content",
+      "contentPlaceholder": "Write your post content here...",
+      "authorInfo": "Author Information",
+      "addAuthor": "Add Author",
+      "removeAuthor": "Remove",
+      "authorRole": "Author",
+      "tagsLabel": "Tags",
+      "tagsPlaceholder": "English Learning, Grammar Tips, Vocabulary Building (comma separated)",
+      "tagsHelp": "Previously used tags will be suggested",
+      "publishLabel": "Publish immediately",
+      "publishButton": "Publish Post",
+      "draftButton": "Save Draft",
+      "creating": "Creating...",
+      "profileWarning": "Please save your first and last name in your profile page first.",
+      "backButton": "← Back to Posts",
+      "checkingAuth": "Checking authentication...",
+      "authorLabel": "Author",
+      "addAuthorButton": "+ Add Author Info",
+      "publishImmediatelyLabel": "Publish Immediately",
+      "saveDraftButton": "Save as Draft",
+      "cancelButton": "Cancel",
+      "publishSuccess": "Post published successfully!",
+      "draftSuccess": "Draft saved successfully!",
+      "publishError": "Error publishing post. Please try again.",
+      "requiredFields": "Please fill in all required fields.",
+      "removeButton": "Remove",
+      "creatingButton": "Creating...",
+      "createPostError": "Failed to create post. Please try again.",
+      "generalError": "An error occurred. Please try again."
+    }
+  },
 
-  ,"contact": {
-    "message": "Message",
-    "email": "E-mail address",
-    "regards": "Regards",
-    "send": "Send",
-    "success": "Your message has been sent successfully!",
-    "fault": "Something went wrong!"
-  }
-
-  ,"cemre": {
+  "cemre": {
     "biography": "BIOGRAPHY",
     "bio": "Highly motivated and experienced English Teacher with a Bachelor’s degree in English Language and Literature from Beykent University, complemented by a minor in Translation and Interpreting. Completed Pedagogical Teacher Training at Marmara University, equipped with effective teaching methodologies and classroom management skills. Proven ability to create engaging, student-centered learning environments. Strong communication, organizational, and interpersonal skills, dedicated to supporting students’ academic and personal growth.",
     "skills": {

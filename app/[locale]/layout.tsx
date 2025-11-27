@@ -1,6 +1,7 @@
 import { ThemeProvider } from "next-themes";
 import "../globals.css";
 import { LangProvider } from "@/providers/lang-provider";
+import { AuthProfileProvider } from "@/providers/auth-profile-provider";
 import TransitionProvider from "@/components/transitionProvider";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
@@ -42,9 +43,11 @@ export default async function RootLayout({
       enableSystem
       disableTransitionOnChange
     >
-      <LangProvider locale={locale}>
-            {children}
-      </LangProvider>
+      <AuthProfileProvider>
+        <LangProvider locale={locale}>
+              {children}
+        </LangProvider>
+      </AuthProfileProvider>
     </ThemeProvider>
   );
 }
