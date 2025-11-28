@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageDialog } from "@/components/language-dialog";
 import { AuthButton } from "@/components/auth-button";
+import { AuthButtonTest } from "@/components/auth-button-test";
 import {motion} from "framer-motion"
 
 export const Navbar = () => {
@@ -37,7 +38,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`fixed w-full top-0 left-0 z-50 transform transition-transform duration-300 ${
+      className={`fixed w-full top-0 left-0 z-50 transform transition-transform duration-300 bg-white/80 backdrop-blur-md border-b border-gray-200 ${
         hidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
@@ -82,6 +83,7 @@ export const Navbar = () => {
           </div>
           <div className="flex items-center">
             <AuthButton />
+            {/* Test tamamlandı: <AuthButtonTest /> */}
           </div>
           <div className="flex items-center">
             <LanguageDialog />

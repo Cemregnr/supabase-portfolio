@@ -143,6 +143,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Drop existing triggers before creating new ones
+DROP TRIGGER IF EXISTS update_profiles_updated_at ON public.profiles;
+DROP TRIGGER IF EXISTS update_blog_posts_updated_at ON public.blog_posts;
 
 CREATE TRIGGER update_profiles_updated_at
     BEFORE UPDATE ON public.profiles

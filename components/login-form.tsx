@@ -15,7 +15,6 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
 
 export function LoginForm({
   className,
@@ -27,7 +26,6 @@ export function LoginForm({
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const router = useRouter();
-  const t = useTranslations("Auth");
 
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,42 +33,27 @@ export function LoginForm({
     setError(null);
     setMessage(null);
 
-    if (!email.trim() || !password.trim()) {
-      setError('Please fill in both email and password');
-      setIsLoading(false);
-      return;
-    }
-
-    console.log('🔐 Login attempt:', email.trim());
-
     try {
       const supabase = createClient();
-      
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email.trim(),
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
         password,
       });
 
       if (error) {
-        console.error('Login failed:', error.message);
-        setError(`Login failed: ${error.message}`);
-        setIsLoading(false);
+        setError(error.message);
         return;
       }
 
-      if (data?.user) {
-        console.log('✅ Login successful:', data.user.email);
-        setMessage('Login successful!');
-        
-        // Kısa bir bekleme sonrası yönlendirme
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 1000);
-      }
+      setMessage("Giriş başarılı! Yönlendiriliyor...");
       
+      // Kısa bir bekleme sonrası yönlendir
+      setTimeout(() => {
+        router.push('/');
+        // Auth state zaten otomatik güncellenecek
+      }, 500);
     } catch (error: any) {
-      console.error('Login error:', error);
-      setError(`Login failed: ${error.message || 'Unknown error'}`);
+      setError(error.message || 'Giriş başarısız.');
     } finally {
       setIsLoading(false);
     }
@@ -79,29 +62,22 @@ export function LoginForm({
   const handleGoogleLogin = async () => {
     setIsLoading(true);
     setError(null);
-    setMessage(null);
 
     try {
       const supabase = createClient();
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/auth/confirm`,
-          queryParams: {
-            prompt: 'select_account',
-            access_type: 'offline'
-          },
+          redirectTo: `${window.location.origin}/auth/callback`,
         },
       });
 
       if (error) {
-        console.error('Google login error:', error);
-        setError('Google login failed. Please try email login.');
-        setIsLoading(false);
+        setError(error.message);
       }
     } catch (error: any) {
-      console.error('Google login error:', error);
-      setError('Google login failed. Please try email login.');
+      setError(error.message || 'Google ile giriş başarısız.');
+    } finally {
       setIsLoading(false);
     }
   };
@@ -110,15 +86,15 @@ export function LoginForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">{t('signIn')}</CardTitle>
+          <CardTitle className="text-xl">Giriş Yap</CardTitle>
           <CardDescription>
-            Enter your email and password or continue with Google
+            Email ve şifrenizi girin veya Google ile giriş yapın
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleEmailLogin} className="space-y-4">
             <div className="grid gap-2">
-              <Label htmlFor="email">{t('email')}</Label>
+              <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -131,12 +107,12 @@ export function LoginForm({
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
-                <Label htmlFor="password">{t('password')}</Label>
+                <Label htmlFor="password">Şifre</Label>
                 <Link
                   href="/auth/forgot-password"
                   className="ml-auto inline-block text-sm underline"
                 >
-                  {t('forgotPassword')}
+                  Şifrenizi mi unuttunuz?
                 </Link>
               </div>
               <Input
@@ -166,35 +142,7 @@ export function LoginForm({
               className="w-full" 
               disabled={isLoading}
             >
-              {isLoading ? "Signing in..." : "Sign In with Email"}
-            </Button>
-            
-            {/* Quick test account creation */}
-            <Button 
-              type="button"
-              variant="outline"
-              className="w-full text-xs" 
-              onClick={async () => {
-                setEmail('test@example.com');
-                setPassword('123456');
-                
-                // Create test account
-                try {
-                  const supabase = createClient();
-                  const { data, error } = await supabase.auth.signUp({
-                    email: 'test@example.com',
-                    password: '123456',
-                  });
-                  
-                  if (!error) {
-                    setMessage('Test account created! You can now login with test@example.com / 123456');
-                  }
-                } catch (e) {
-                  console.log('Test account may already exist');
-                }
-              }}
-            >
-              Create Test Account (test@example.com / 123456)
+              {isLoading ? "Giriş yapılıyor..." : "Email ile Giriş Yap"}
             </Button>
           </form>
           
@@ -204,7 +152,7 @@ export function LoginForm({
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-background px-2 text-muted-foreground">
-                {t('or')}
+                VEYA
               </span>
             </div>
           </div>
@@ -234,13 +182,13 @@ export function LoginForm({
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
               />
             </svg>
-            {t('continueWithGoogle')}
+            Google ile Giriş Yap
           </Button>
 
           <div className="mt-4 text-center text-sm">
-            {t('noAccount')}{" "}
+            Hesabınız yok mu?{" "}
             <Link href="/auth/sign-up" className="underline">
-              {t('signUpLink')}
+              Kayıt Ol
             </Link>
           </div>
         </CardContent>
